@@ -1,21 +1,54 @@
 import streamlit as st
 
-# Dictionary containing your drinks and ingredients
-drinks = {
-    "Orange Cosmo": ["1 x Bahama Vodka", "1 x Orange Juice", "1 x Triple Sec", "1 x Cranberry Juice"],
-    "Blue Lagoon": ["1 x Curacao", "1 x Pineapple Juice", "1 x Lemonade", "1 x Bahama Vodka", "1 x Special Ing"],
-    "Purple Rain": ["1 x Curacao", "1 x Sweet & Sour Mix", "1 x Bahama Vodka", "1 x Cranberry Juice"],
-    "Pink Apple Martini": ["1 x Sour Apple Liqueur", "1 x Simple Syrup", "1 x Bahama Vodka", "1 x Lemon Juice"],
-    "Old Lady": ["1 x Apple Brandy", "1 x Grenadine", "1 x Lemon Juice", "1 x Bahama Gin"]
-}
+# CSS for blue/pink theme and improved styling
+st.markdown(
+    """
+    <style>
+    body {
+        background-color: #f0f0f5;
+        font-family: 'Arial', sans-serif;
+    }
+    .stSelectbox label {
+        font-size: 18px;
+        color: #3333cc;
+    }
+    .stSelectbox div {
+        color: #ff3399;
+    }
+    .stMarkdown {
+        background-color: #ffffff;
+        padding: 10px;
+        border-radius: 10px;
+        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    ul {
+        color: #3333cc;
+        font-size: 16px;
+    }
+    li {
+        margin-bottom: 8px;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 
 # Title of the app
-st.title("Drink Ingredients Finder")
+st.title("🍸 Bahamas Ingredients")
+
+# Dictionary containing your drinks and ingredients
+drinks = {
+    "Orange Cosmo": ["Bahama Vodka", "Orange Juice", "Triple Sec", "Cranberry Juice"],
+    "Blue Lagoon": ["Curacao", "Pineapple Juice", "Lemonade", "Bahama Vodka", "Special Ing"],
+    "Purple Rain": ["Curacao", "Sweet & Sour Mix", "Bahama Vodka", "Cranberry Juice"],
+    "Pink Apple Martini": ["Sour Apple Liqueur", "Simple Syrup", "Bahama Vodka", "Lemon Juice"],
+    "Old Lady": ["Apple Brandy", "Grenadine", "Lemon Juice", "Bahama Gin"]
+}
 
 # Dropdown menu for selecting a drink
 selected_drink = st.selectbox("Select a drink:", list(drinks.keys()))
 
-# Display ingredients
+# Display ingredients in a list format
 if selected_drink:
-    st.write(f"**Ingredients for {selected_drink}:**")
-    st.write(", ".join(drinks[selected_drink]))
+    st.markdown(f"**Ingredients for {selected_drink}:**")
+    st.markdown("<ul>" + "".join([f"<li>{ingredient}</li>" for ingredient in drinks[selected_drink]]) + "</ul>", unsafe_allow_html=True)
