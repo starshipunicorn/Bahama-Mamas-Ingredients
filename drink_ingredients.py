@@ -34,7 +34,7 @@ st.markdown(
 )
 
 # Title of the app
-st.title("🍸 Bahamas Ingredients")
+st.title("🍸 Drink Ingredients Finder")
 
 # Dictionary containing your drinks and ingredients
 drinks = {
@@ -46,9 +46,9 @@ drinks = {
 }
 
 # Dropdown menu for selecting a drink
-selected_drink = st.selectbox("Select a drink:", list(drinks.keys()))
+selected_drink = st.selectbox("Select a drink:", ["Choose..."] + list(drinks.keys()))
 
-# Display ingredients in a list format
-if selected_drink:
+# Display ingredients in a list format if a drink is selected
+if selected_drink and selected_drink != "Choose...":
     st.markdown(f"**Ingredients for {selected_drink}:**")
     st.markdown("<ul>" + "".join([f"<li>{ingredient}</li>" for ingredient in drinks[selected_drink]]) + "</ul>", unsafe_allow_html=True)
