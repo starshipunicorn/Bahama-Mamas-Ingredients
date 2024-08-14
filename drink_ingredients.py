@@ -50,5 +50,5 @@ selected_drink = st.selectbox("Select a drink:", ["Choose..."] + list(drinks.key
 
 # Display ingredients in a list format if a drink is selected
 if selected_drink and selected_drink != "Choose...":
-    st.markdown(f"**Ingredients for {selected_drink}:**")
     st.markdown("<ul>" + "".join([f"<li>{ingredient}</li>" for ingredient in drinks[selected_drink]]) + "</ul>", unsafe_allow_html=True)
+
