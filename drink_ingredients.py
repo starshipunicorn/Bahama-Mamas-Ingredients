@@ -43,6 +43,8 @@ drinks = {
     "Purple Rain": ["Curacao", "Sweet & Sour Mix", "Bahama Vodka", "Cranberry Juice"],
     "Pink Apple Martini": ["Sour Apple Liqueur", "Simple Syrup", "Bahama Vodka", "Lemon Juice"],
     "Old Lady": ["Apple Brandy", "Grenadine", "Lemon Juice", "Bahama Gin"]
+    "Shirley Temple": ["Soda Water", "Grenadine", "Sliced Lemon"]
+    "Sparkling Water": ["Soda Water", "Sugar", "Sliced Lemon"]
 }
 
 # Dropdown menu for selecting a drink
